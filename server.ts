@@ -103,11 +103,11 @@ serve({
     let pageName: string;
 
     if (subdomainPage) {
-      // Subdomain routing: page1.domain.com serves pages/page1/index.html
+      // Subdomain routing: home.domain.com serves pages/home/index.html
       pageName = subdomainPage;
     } else if (pathname === "/" || pathname === "") {
       // Root path without subdomain - serve a default page or list
-      pageName = "page1";
+      pageName = "home";
     } else {
       // Path-based routing: /page1 serves pages/page1/index.html
       pageName = pathname.replace(/^\//, "").replace(/\/$/, "").split("/")[0];
