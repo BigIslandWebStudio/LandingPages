@@ -1,0 +1,13 @@
+{
+  "name": "landing-pages",
+  "version": "1.0.0",
+  "description": "Static landing pages served with Bun",
+  "scripts": {
+    "dev": "bun run --watch server.ts",
+    "start": "bun run server.ts",
+    "build:css": "bunx tailwindcss -i ./src/input.css -o ./public/styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
