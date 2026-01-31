@@ -122,6 +122,13 @@ Always confirm understanding of the request before making changes, and provide a
 ### After Making Changes
 
 1. Summarize what was changed
-2. If new Tailwind classes were used, remind to run: `bun run build:css`
-3. Suggest testing with: `bun run dev`
+2. If new Tailwind classes were used, run: `bun run build:css`
+3. **Start the local server** so the user can preview changes:
+   ```bash
+   bun run dev
+   ```
+   The server runs at `http://localhost:3000`. Pages are accessible at:
+   - `http://localhost:3000/page1` for pages/page1/
+   - `http://localhost:3000/page2` for pages/page2/
+   - Or via subdomain simulation by setting the Host header
 4. Note any subdomain/DNS considerations for new pages
