@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "bun run --watch server.ts",
     "start": "bun run server.ts",
-    "build:css": "bunx tailwindcss -i ./src/input.css -o ./public/styles.css --minify"
+    "build:css": "bunx @tailwindcss/cli -i ./src/input.css -o ./public/styles.css --minify"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^4.1.18"
   }
 }
