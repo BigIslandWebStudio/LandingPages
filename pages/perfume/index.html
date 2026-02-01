@@ -58,12 +58,12 @@
         </div>
         <div class="order-1 lg:order-2 flex justify-center">
           <div class="relative">
-            <div class="w-72 h-96 sm:w-80 sm:h-[28rem] bg-gradient-to-b from-amber-50 to-amber-100 rounded-full flex items-center justify-center">
-              <div class="relative">
-                <div class="w-20 h-32 bg-gradient-to-b from-amber-200 via-amber-300 to-amber-400 rounded-t-full rounded-b-lg shadow-2xl"></div>
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-6 bg-gradient-to-b from-amber-600 to-amber-700 rounded-t-sm"></div>
-                <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-4 h-3 bg-amber-800 rounded-full"></div>
-              </div>
+            <div class="w-72 h-96 sm:w-80 sm:h-[28rem] rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1541643600914-985686d1a80f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="AURELIA Nuit d'Or Perfume Bottle"
+                class="w-full h-full object-cover"
+              >
             </div>
             <div class="absolute -bottom-8 -left-8 w-48 h-48 bg-rose-100/50 rounded-full blur-3xl"></div>
             <div class="absolute -top-8 -right-8 w-32 h-32 bg-amber-100/50 rounded-full blur-2xl"></div>
@@ -96,8 +96,12 @@
       <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
         <!-- Product 1 -->
         <div class="group">
-          <div class="aspect-[3/4] bg-gradient-to-b from-rose-50 to-rose-100 mb-8 flex items-center justify-center overflow-hidden">
-            <div class="w-16 h-28 bg-gradient-to-b from-rose-200 to-rose-300 rounded-t-full rounded-b-lg shadow-lg group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="aspect-[3/4] bg-gradient-to-b from-rose-50 to-rose-100 mb-8 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Rose Absolue Perfume"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            >
           </div>
           <p class="text-xs tracking-widest uppercase text-stone-400 mb-2">Eau de Parfum</p>
           <h3 class="font-serif text-2xl font-light mb-2">Rose Absolue</h3>
@@ -106,8 +110,12 @@
         </div>
         <!-- Product 2 -->
         <div class="group">
-          <div class="aspect-[3/4] bg-gradient-to-b from-amber-50 to-amber-100 mb-8 flex items-center justify-center overflow-hidden">
-            <div class="w-16 h-28 bg-gradient-to-b from-amber-300 to-amber-400 rounded-t-full rounded-b-lg shadow-lg group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="aspect-[3/4] bg-gradient-to-b from-amber-50 to-amber-100 mb-8 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Nuit d'Or Perfume"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            >
           </div>
           <p class="text-xs tracking-widest uppercase text-stone-400 mb-2">Extrait de Parfum</p>
           <h3 class="font-serif text-2xl font-light mb-2">Nuit d'Or</h3>
@@ -116,8 +124,12 @@
         </div>
         <!-- Product 3 -->
         <div class="group">
-          <div class="aspect-[3/4] bg-gradient-to-b from-stone-100 to-stone-200 mb-8 flex items-center justify-center overflow-hidden">
-            <div class="w-16 h-28 bg-gradient-to-b from-stone-400 to-stone-500 rounded-t-full rounded-b-lg shadow-lg group-hover:scale-110 transition-transform duration-500"></div>
+          <div class="aspect-[3/4] bg-gradient-to-b from-stone-100 to-stone-200 mb-8 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+              alt="Oud Noir Perfume"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            >
           </div>
           <p class="text-xs tracking-widest uppercase text-stone-400 mb-2">Parfum</p>
           <h3 class="font-serif text-2xl font-light mb-2">Oud Noir</h3>
@@ -150,10 +162,16 @@
           </div>
         </div>
         <div class="relative">
-          <div class="aspect-[4/5] bg-gradient-to-br from-stone-800 to-stone-700 flex items-center justify-center">
-            <div class="text-center">
-              <p class="font-serif text-8xl font-light text-stone-600 mb-2">1928</p>
-              <p class="text-xs tracking-widest uppercase text-stone-500">Grasse, France</p>
+          <div class="aspect-[4/5] overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Lavender fields in Grasse, France"
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-stone-900/20 to-transparent"></div>
+            <div class="absolute bottom-8 left-8 text-left">
+              <p class="font-serif text-6xl font-light text-white mb-2">1928</p>
+              <p class="text-xs tracking-widest uppercase text-stone-300">Grasse, France</p>
             </div>
           </div>
           <div class="absolute -bottom-6 -right-6 w-24 h-24 border border-stone-700"></div>
