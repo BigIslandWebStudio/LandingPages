@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraSound Pro — Immersive Wireless Headphones</title>
+    <meta name="description" content="Experience studio-quality sound with AuraSound Pro wireless headphones. Active noise cancellation, 40-hour battery, and premium comfort.">
+    <meta property="og:title" content="AuraSound Pro — Immersive Wireless Headphones">
+    <meta property="og:description" content="Studio-quality wireless headphones with active noise cancellation and 40-hour battery life.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        .hero-gradient {
+            background: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 40%),
+                        #0a0a0a;
+        }
+        .product-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 60%);
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+        .spec-bar {
+            background: linear-gradient(90deg, #6366f1 var(--width), #1e1b4b var(--width));
+        }
+        .wave-animation {
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(99, 102, 241, 0.6) 0px,
+                rgba(99, 102, 241, 0.6) 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            animation: wave 2s ease-in-out infinite alternate;
+        }
+        @keyframes wave {
+            from { transform: scaleY(0.5); }
+            to { transform: scaleY(1); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .float { animation: float 6s ease-in-out infinite; }
+        /* Focus styles for keyboard navigation */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid rgba(99, 102, 241, 0.6);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white">
+
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-lg focus:font-medium focus:text-sm">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                    <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg>
+                </div>
+                <span class="text-lg font-bold tracking-tight">AuraSound</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#specs" class="hover:text-white transition-colors">Specs</a>
+                <a href="#reviews" class="hover:text-white transition-colors">Reviews</a>
+                <a href="#order" class="px-5 py-2 bg-indigo-600 text-white rounded-full hover:bg-indigo-500 transition-colors font-medium">Pre-Order — $299</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open navigation menu" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-[#0a0a0a]/95 backdrop-blur-xl">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3">
+                <a href="#features" class="py-2 text-gray-300 hover:text-white transition-colors">Features</a>
+                <a href="#specs" class="py-2 text-gray-300 hover:text-white transition-colors">Specs</a>
+                <a href="#reviews" class="py-2 text-gray-300 hover:text-white transition-colors">Reviews</a>
+                <a href="#order" class="mt-2 px-5 py-2.5 bg-indigo-600 text-white rounded-full text-sm font-medium hover:bg-indigo-500 transition-colors text-center">Pre-Order — $299</a>
+            </div>
+        </div>
+        <script>
+            document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                var menu = document.getElementById('mobile-menu');
+                var isHidden = menu.classList.contains('hidden');
+                menu.classList.toggle('hidden');
+                this.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+            });
+        </script>
+    </nav>
+
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 pt-24 pb-16 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-400 text-sm mb-6">
+                    <span class="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></span>
+                    Now available for pre-order
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black leading-[0.95] tracking-tight mb-6">
+                    Sound<br>
+                    <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Without</span><br>
+                    Boundaries
+                </h1>
+                <p class="text-lg text-gray-300 max-w-md mb-8 leading-relaxed">
+                    AuraSound Pro delivers studio-quality audio with adaptive noise cancellation that learns your environment. 40 hours of pure listening bliss.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#order" class="px-8 py-4 bg-indigo-600 text-white rounded-full hover:bg-indigo-500 transition-all font-semibold text-center hover:shadow-lg hover:shadow-indigo-500/25">
+                        Pre-Order Now — $299
+                    </a>
+                    <a href="#features" class="px-8 py-4 border border-white/10 text-white rounded-full hover:bg-white/5 transition-all font-semibold text-center">
+                        Explore Features
+                    </a>
+                </div>
+            </div>
+            <div class="relative flex justify-center items-center">
+                <div class="product-glow absolute inset-0"></div>
+                <!-- Product visual using CSS art -->
+                <div class="float relative">
+                    <div class="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-gray-800 via-gray-900 to-black border border-white/10 shadow-2xl flex items-center justify-center relative">
+                        <div class="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 border border-white/5 flex items-center justify-center">
+                            <div class="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-indigo-600 to-purple-700 shadow-lg shadow-indigo-500/30 flex items-center justify-center">
+                                <svg class="w-12 h-12 md:w-16 md:h-16 text-white/90" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg>
+                            </div>
+                        </div>
+                        <!-- Ear cushion accents -->
+                        <div class="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-24 bg-gradient-to-b from-gray-700 to-gray-800 rounded-full border border-white/5"></div>
+                        <div class="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-24 bg-gradient-to-b from-gray-700 to-gray-800 rounded-full border border-white/5"></div>
+                    </div>
+                    <!-- Headband -->
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 w-48 md:w-64 h-8 bg-gradient-to-r from-transparent via-gray-700 to-transparent rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Engineered for <span class="text-indigo-400">Perfection</span></h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Every detail has been meticulously crafted to deliver an unparalleled listening experience.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div class="feature-card p-8 rounded-2xl bg-white/[0.03] border border-white/5 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-indigo-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Hi-Res Audio</h3>
+                    <p class="text-gray-400 leading-relaxed">Custom 40mm drivers deliver pristine audio with a frequency response of 4Hz–40kHz, capturing every nuance of your music.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card p-8 rounded-2xl bg-white/[0.03] border border-white/5 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-purple-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a5 5 0 01-7.072 0"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Adaptive ANC</h3>
+                    <p class="text-gray-400 leading-relaxed">Our AI-powered noise cancellation adapts in real-time to your environment, blocking out 98% of ambient noise effortlessly.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card p-8 rounded-2xl bg-white/[0.03] border border-white/5 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-pink-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">40-Hour Battery</h3>
+                    <p class="text-gray-400 leading-relaxed">Marathon listening sessions are no problem. Get a full week of use on a single charge, with 5-minute quick charge for 3 hours of playback.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="feature-card p-8 rounded-2xl bg-white/[0.03] border border-white/5 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-emerald-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Multipoint Connect</h3>
+                    <p class="text-gray-400 leading-relaxed">Seamlessly switch between your phone, laptop, and tablet with Bluetooth 5.3 multipoint connectivity.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="feature-card p-8 rounded-2xl bg-white/[0.03] border border-white/5 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-amber-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cloud-Soft Comfort</h3>
+                    <p class="text-gray-400 leading-relaxed">Memory foam ear cushions with breathable protein leather wrap your ears in comfort for all-day wear without fatigue.</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="feature-card p-8 rounded-2xl bg-white/[0.03] border border-white/5 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-cyan-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Crystal-Clear Calls</h3>
+                    <p class="text-gray-400 leading-relaxed">6 beamforming microphones with AI voice isolation ensure you're heard clearly in any environment, from coffee shops to airports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section id="specs" class="py-24 bg-gradient-to-b from-[#0a0a0a] to-[#0f0f1a]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8">Technical <span class="text-indigo-400">Specifications</span></h2>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-300">Sound Quality</span>
+                                <span class="text-indigo-400">96/100</span>
+                            </div>
+                            <div class="h-2 rounded-full spec-bar" style="--width: 96%"></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-300">Noise Cancellation</span>
+                                <span class="text-indigo-400">98/100</span>
+                            </div>
+                            <div class="h-2 rounded-full spec-bar" style="--width: 98%"></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-300">Comfort</span>
+                                <span class="text-indigo-400">94/100</span>
+                            </div>
+                            <div class="h-2 rounded-full spec-bar" style="--width: 94%"></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-300">Battery Life</span>
+                                <span class="text-indigo-400">95/100</span>
+                            </div>
+                            <div class="h-2 rounded-full spec-bar" style="--width: 95%"></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span class="text-gray-300">Build Quality</span>
+                                <span class="text-indigo-400">92/100</span>
+                            </div>
+                            <div class="h-2 rounded-full spec-bar" style="--width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 text-center">
+                        <div class="text-3xl font-bold text-indigo-400 mb-1">40mm</div>
+                        <div class="text-sm text-gray-400">Custom Drivers</div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 text-center">
+                        <div class="text-3xl font-bold text-purple-400 mb-1">40hr</div>
+                        <div class="text-sm text-gray-400">Battery Life</div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 text-center">
+                        <div class="text-3xl font-bold text-pink-400 mb-1">BT 5.3</div>
+                        <div class="text-sm text-gray-400">Bluetooth</div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 text-center">
+                        <div class="text-3xl font-bold text-emerald-400 mb-1">250g</div>
+                        <div class="text-sm text-gray-400">Lightweight</div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 text-center">
+                        <div class="text-3xl font-bold text-amber-400 mb-1">-45dB</div>
+                        <div class="text-sm text-gray-400">Noise Reduction</div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 text-center">
+                        <div class="text-3xl font-bold text-cyan-400 mb-1">LDAC</div>
+                        <div class="text-sm text-gray-400">Hi-Res Codec</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-24 bg-[#0f0f1a]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Loved by <span class="text-indigo-400">Audio Enthusiasts</span></h2>
+                <p class="text-gray-400 text-lg">Rated 4.9/5 from over 2,400 reviews</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-8 rounded-2xl bg-white/[0.03] border border-white/5">
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">"The noise cancellation is on another level. I use these daily in a busy open office and they completely transform my focus. Best headphones I've ever owned."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-sm font-bold">SK</div>
+                        <div>
+                            <div class="text-sm font-semibold">Sarah K.</div>
+                            <div class="text-xs text-gray-400">Software Engineer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 rounded-2xl bg-white/[0.03] border border-white/5">
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">"As a music producer, I need headphones I can trust for mixing. AuraSound Pro has a flat, accurate response that rivals studio monitors costing 3x as much."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-sm font-bold">MR</div>
+                        <div>
+                            <div class="text-sm font-semibold">Marcus R.</div>
+                            <div class="text-xs text-gray-400">Music Producer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-8 rounded-2xl bg-white/[0.03] border border-white/5">
+                    <div class="flex gap-1 mb-4">
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg class="w-5 h-5 text-amber-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">"The 40-hour battery isn't marketing hype — I tested it. Comfort is also incredible; I regularly forget I'm wearing them. A game-changer for travel."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-sm font-bold">JL</div>
+                        <div>
+                            <div class="text-sm font-semibold">Jamie L.</div>
+                            <div class="text-xs text-gray-400">Travel Blogger</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="order" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-[#0a0a0a]"></div>
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-6xl font-black mb-6">Ready to Elevate<br>Your Sound?</h2>
+            <p class="text-lg text-gray-400 mb-10 max-w-xl mx-auto">Join 50,000+ audiophiles who've upgraded to AuraSound Pro. Free shipping worldwide. 30-day no-questions-asked returns.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="px-10 py-4 bg-indigo-600 text-white rounded-full hover:bg-indigo-500 transition-all font-semibold text-lg hover:shadow-lg hover:shadow-indigo-500/25">
+                    Pre-Order — $299
+                </a>
+                <a href="#" class="px-10 py-4 border border-white/10 text-white rounded-full hover:bg-white/5 transition-all font-semibold text-lg">
+                    Compare Models
+                </a>
+            </div>
+            <p class="text-sm text-gray-400 mt-6">Ships March 2026 · Free 2-day shipping · 2-year warranty</p>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg>
+                    </div>
+                    <span class="text-lg font-bold tracking-tight text-white">AuraSound</span>
+                </div>
+                <div class="flex gap-8 text-sm text-gray-400">
+                    <a href="#" class="hover:text-white transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms</a>
+                    <a href="#" class="hover:text-white transition-colors">Support</a>
+                    <a href="#" class="hover:text-white transition-colors">Press</a>
+                </div>
+                <p class="text-sm text-gray-400">&copy; 2026 AuraSound. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

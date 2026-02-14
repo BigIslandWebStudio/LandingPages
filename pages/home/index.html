@@ -1,316 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Create stunning landing pages in minutes with AI. No coding required. Just describe what you want and watch your vision come to life.">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="AI Landing Pages - Create Beautiful Pages in Minutes">
-  <meta property="og:description" content="Create stunning landing pages in minutes with AI. No coding required.">
-  <meta property="og:type" content="website">
-  <link rel="canonical" href="https://home.yourdomain.com">
-  <title>AI Landing Pages - Create Beautiful Pages in Minutes</title>
-  <link rel="stylesheet" href="/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LandingPages — AI-Designed Landing Pages with Bun + Tailwind</title>
+    <meta name="description" content="Describe your landing page in plain English and let an AI agent build it. Professional, responsive, high-converting pages powered by Bun and Tailwind CSS. Open source.">
+    <meta property="og:title" content="LandingPages — AI-Designed Landing Pages with Bun + Tailwind">
+    <meta property="og:description" content="Describe your landing page in plain English and let an AI agent build it. Powered by Bun and Tailwind CSS.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        code, .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .hero-gradient {
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 60%, rgba(192, 132, 252, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(232, 121, 249, 0.06) 0%, transparent 40%),
+                #09090b;
+        }
+        .code-window {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0d1117 100%);
+        }
+        .terminal-green { color: #4ade80; }
+        .terminal-blue { color: #60a5fa; }
+        .terminal-purple { color: #c084fc; }
+        .terminal-amber { color: #fbbf24; }
+        .terminal-gray { color: #6b7280; }
+        .glow-purple {
+            box-shadow: 0 0 80px rgba(139, 92, 246, 0.2), 0 0 160px rgba(139, 92, 246, 0.06);
+        }
+        .example-card {
+            transition: all 0.3s ease;
+        }
+        .example-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .typing-animation {
+            overflow: hidden;
+            border-right: 2px solid #4ade80;
+            white-space: nowrap;
+            animation: typing 2s steps(30) forwards, blink 1s step-end infinite;
+        }
+        /* Focus styles for keyboard navigation */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid rgba(139, 92, 246, 0.6);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
 </head>
-<body class="min-h-screen bg-slate-950 text-white">
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/50 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <div class="flex-shrink-0">
-          <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">LandingAI</span>
-        </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#demos" class="text-slate-400 hover:text-white transition-colors text-sm">Live Demos</a>
-          <a href="#features" class="text-slate-400 hover:text-white transition-colors text-sm">Features</a>
-          <a href="#how-it-works" class="text-slate-400 hover:text-white transition-colors text-sm">How It Works</a>
-          <a href="#cta" class="bg-gradient-to-r from-cyan-500 to-violet-500 text-white px-5 py-2 rounded-full text-sm font-medium hover:from-cyan-400 hover:to-violet-400 transition-all shadow-lg shadow-violet-500/25">Get Started</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+<body class="bg-[#09090b] text-white">
 
-  <!-- Hero Section -->
-  <section class="pt-28 pb-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-    <!-- Animated background gradient -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cyan-500/20 rounded-full blur-[120px]"></div>
-      <div class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-violet-500/20 rounded-full blur-[120px]"></div>
-    </div>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded-lg focus:font-medium focus:text-sm">Skip to main content</a>
 
-    <div class="max-w-5xl mx-auto text-center relative z-10">
-      <div class="inline-flex items-center bg-slate-800/60 border border-slate-700/50 rounded-full px-4 py-2 mb-8 backdrop-blur-sm">
-        <span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-        <span class="text-slate-300 text-sm">Powered by Claude AI</span>
-      </div>
-      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight mb-6 tracking-tight">
-        Describe it.
-        <span class="bg-gradient-to-r from-cyan-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent"> Build it.</span>
-      </h1>
-      <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Transform your ideas into beautiful, conversion-optimized landing pages with AI. No code, no design skills, no limits.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#cta" class="bg-gradient-to-r from-cyan-500 to-violet-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-cyan-400 hover:to-violet-400 transition-all shadow-xl shadow-violet-500/30">
-          Start Creating Free
-        </a>
-        <a href="#demos" class="bg-slate-800/80 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-slate-700 transition-colors border border-slate-700/50 backdrop-blur-sm">
-          View Live Demos
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Demo Pages Gallery -->
-  <section id="demos" class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12">
-        <p class="text-cyan-400 text-sm font-medium tracking-wide uppercase mb-3">Live Examples</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">See What AI Can Build</h2>
-        <p class="text-slate-400 max-w-xl mx-auto">Each of these pages was generated by AI. Click to explore the full experience.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-        <!-- SaaS Demo -->
-        <a href="/saas" class="group block relative rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-600 to-blue-700 aspect-[4/3]">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          <div class="absolute inset-0 p-6 flex flex-col justify-between">
-            <div class="flex items-center gap-2">
-              <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">SaaS</span>
-              <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">Light Mode</span>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-[#09090b]/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <span class="text-lg font-bold tracking-tight">LandingPages</span>
             </div>
-            <div>
-              <div class="w-10 h-10 bg-white/20 backdrop-blur rounded-lg mb-3 flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-1">StreamFlow</h3>
-              <p class="text-white/80 text-sm">Modern SaaS product page with pricing, features, and testimonials.</p>
+            <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#examples" class="hover:text-white transition-colors">Examples</a>
+                <a href="#quickstart" class="hover:text-white transition-colors">Quick Start</a>
+                <a href="/docs" class="hover:text-white transition-colors">Docs</a>
+                <a href="https://github.com/ninachaubal/LandingPages" class="flex items-center gap-2 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
             </div>
-          </div>
-          <div class="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors"></div>
-        </a>
-
-        <!-- Perfume Demo -->
-        <a href="/perfume" class="group block relative rounded-2xl overflow-hidden bg-gradient-to-br from-amber-700 to-stone-800 aspect-[4/3]">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          <div class="absolute inset-0 p-6 flex flex-col justify-between">
-            <div class="flex items-center gap-2">
-              <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">Luxury</span>
-              <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">Editorial</span>
-            </div>
-            <div>
-              <div class="w-10 h-10 bg-white/20 backdrop-blur rounded-lg mb-3 flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-1">AURELIA</h3>
-              <p class="text-white/80 text-sm">Elegant haute parfumerie with sophisticated typography.</p>
-            </div>
-          </div>
-          <div class="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors"></div>
-        </a>
-
-        <!-- Fashion Demo -->
-        <a href="/fashion" class="group block relative rounded-2xl overflow-hidden bg-gradient-to-br from-teal-500 to-cyan-600 aspect-[4/3]">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          <div class="absolute inset-0 p-6 flex flex-col justify-between">
-            <div class="flex items-center gap-2">
-              <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">E-commerce</span>
-              <span class="bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full">Lifestyle</span>
-            </div>
-            <div>
-              <div class="w-10 h-10 bg-white/20 backdrop-blur rounded-lg mb-3 flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-1">COASTAL</h3>
-              <p class="text-white/80 text-sm">Beach-inspired fashion brand with product grid and categories.</p>
-            </div>
-          </div>
-          <div class="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors"></div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section id="features" class="py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <p class="text-cyan-400 text-sm font-medium tracking-wide uppercase mb-3">Capabilities</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Everything You Need to Ship Fast</h2>
-        <p class="text-lg text-slate-400 max-w-2xl mx-auto">From idea to live landing page in minutes, not weeks.</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition-all group">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:from-cyan-500/30 group-hover:to-violet-500/30 transition-colors">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-3">Instant Generation</h3>
-          <p class="text-slate-400">Describe your page in plain English. Get a complete, polished landing page in seconds.</p>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition-all group">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:from-cyan-500/30 group-hover:to-violet-500/30 transition-colors">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-3">Any Style, Any Industry</h3>
-          <p class="text-slate-400">SaaS, e-commerce, luxury brands, agencies. AI adapts to your brand's unique voice.</p>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition-all group">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:from-cyan-500/30 group-hover:to-violet-500/30 transition-colors">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-3">Fully Responsive</h3>
-          <p class="text-slate-400">Every page looks perfect on mobile, tablet, and desktop. No extra work required.</p>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition-all group">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:from-cyan-500/30 group-hover:to-violet-500/30 transition-colors">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-3">Conversion Optimized</h3>
-          <p class="text-slate-400">AI understands UX best practices. Get layouts that guide visitors to action.</p>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition-all group">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:from-cyan-500/30 group-hover:to-violet-500/30 transition-colors">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-3">Clean, Editable Code</h3>
-          <p class="text-slate-400">Semantic HTML and Tailwind CSS. Easy to customize and integrate anywhere.</p>
-        </div>
-
-        <div class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition-all group">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:from-cyan-500/30 group-hover:to-violet-500/30 transition-colors">
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-3">Iterate in Seconds</h3>
-          <p class="text-slate-400">Request changes in plain English. See updates instantly without starting over.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works Section -->
-  <section id="how-it-works" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <p class="text-cyan-400 text-sm font-medium tracking-wide uppercase mb-3">Process</p>
-        <h2 class="text-3xl sm:text-4xl font-bold mb-4">Three Steps to Launch</h2>
-        <p class="text-lg text-slate-400 max-w-2xl mx-auto">From idea to live page in minutes.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="relative text-center">
-          <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg shadow-violet-500/30">1</div>
-          <h3 class="text-xl font-semibold mb-4">Describe Your Vision</h3>
-          <p class="text-slate-400">Tell AI about your product, audience, and desired style. Be as detailed or brief as you like.</p>
-          <div class="hidden md:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-cyan-500/50 to-transparent"></div>
-        </div>
-
-        <div class="relative text-center">
-          <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg shadow-violet-500/30">2</div>
-          <h3 class="text-xl font-semibold mb-4">AI Builds Your Page</h3>
-          <p class="text-slate-400">Watch as a complete, responsive landing page with professional copy appears in seconds.</p>
-          <div class="hidden md:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-cyan-500/50 to-transparent"></div>
-        </div>
-
-        <div class="text-center">
-          <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-violet-500 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg shadow-violet-500/30">3</div>
-          <h3 class="text-xl font-semibold mb-4">Refine & Deploy</h3>
-          <p class="text-slate-400">Request changes naturally, then export the code or deploy directly with one click.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-2">10K+</div>
-          <div class="text-slate-400 text-sm">Pages Created</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-2">&lt;30s</div>
-          <div class="text-slate-400 text-sm">Generation Time</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-2">99%</div>
-          <div class="text-slate-400 text-sm">Satisfaction Rate</div>
-        </div>
-        <div>
-          <div class="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-2">$0</div>
-          <div class="text-slate-400 text-sm">To Start</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section id="cta" class="py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
-      <div class="p-12 sm:p-16 rounded-3xl bg-gradient-to-br from-cyan-600 via-violet-600 to-fuchsia-600 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
-        <div class="relative z-10">
-          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">Ready to Build Something Amazing?</h2>
-          <p class="text-xl text-white/90 mb-10 max-w-lg mx-auto">Start creating your landing page now. No credit card, no commitment.</p>
-          <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              class="flex-1 px-6 py-4 rounded-full text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-white/50"
-              required
-            >
-            <button
-              type="submit"
-              class="bg-slate-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-slate-800 transition-colors whitespace-nowrap"
-            >
-              Get Started
+            <button id="mobile-menu-btn" class="md:hidden p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Open navigation menu" aria-expanded="false">
+                <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
-          </form>
         </div>
-      </div>
-    </div>
-  </section>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-[#09090b]/95 backdrop-blur-xl">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3">
+                <a href="#features" class="py-2 text-gray-300 hover:text-white transition-colors">Features</a>
+                <a href="#examples" class="py-2 text-gray-300 hover:text-white transition-colors">Examples</a>
+                <a href="#quickstart" class="py-2 text-gray-300 hover:text-white transition-colors">Quick Start</a>
+                <a href="/docs" class="py-2 text-gray-300 hover:text-white transition-colors">Docs</a>
+                <a href="https://github.com/ninachaubal/LandingPages" class="py-2 text-gray-300 hover:text-white transition-colors flex items-center gap-2">
+                    <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="#quickstart" class="mt-2 px-5 py-2.5 bg-violet-600 text-white rounded-lg text-sm font-medium hover:bg-violet-500 transition-colors text-center">Get Started</a>
+            </div>
+        </div>
+        <script>
+            document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                var menu = document.getElementById('mobile-menu');
+                var isHidden = menu.classList.contains('hidden');
+                menu.classList.toggle('hidden');
+                this.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+            });
+        </script>
+    </nav>
 
-  <!-- Footer -->
-  <footer class="py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-          <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">LandingAI</span>
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center relative overflow-hidden pt-20">
+        <!-- Decorative grid -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px); background-size: 80px 80px;"></div>
+
+        <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-violet-500/10 border border-violet-500/20 rounded-full text-violet-400 text-sm mb-8">
+                        <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        AI-Powered Design — Just Describe What You Want
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight mb-6">
+                        Your AI Agent<br>
+                        <span class="bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">Designs Landing Pages</span>
+                    </h1>
+                    <p class="text-lg text-gray-300 max-w-lg mb-8 leading-relaxed">
+                        Describe your landing page in plain English and an AI agent builds it for you — professional, high-converting, and responsive. Powered by Bun + Tailwind CSS. Open source.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="#quickstart" class="px-8 py-4 bg-violet-600 text-white rounded-xl font-semibold hover:bg-violet-500 transition-all hover:shadow-lg hover:shadow-violet-500/25 text-center">
+                            Get Started in 30 Seconds
+                        </a>
+                        <a href="#examples" class="px-8 py-4 border border-white/10 rounded-xl font-semibold hover:bg-white/5 transition-all text-center">
+                            View Examples
+                        </a>
+                    </div>
+                    <!-- Quick install -->
+                    <div class="flex items-center gap-3 p-3 bg-white/[0.03] border border-white/5 rounded-xl max-w-md">
+                        <code class="text-sm font-mono flex-1">
+                            <span class="terminal-gray">$</span> <span class="terminal-green">git clone</span> <span class="text-gray-300">LandingPages && bun run dev</span>
+                        </code>
+                        <button class="p-2 hover:bg-white/5 rounded-lg transition-colors text-gray-400 hover:text-white" title="Copy">
+                            <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI Conversation Preview -->
+                <div class="code-window rounded-2xl border border-white/10 overflow-hidden glow-purple">
+                    <!-- Window chrome -->
+                    <div class="flex items-center gap-3 px-4 py-3 bg-white/5 border-b border-white/5">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-500/60"></div>
+                            <div class="w-3 h-3 rounded-full bg-emerald-500/60"></div>
+                        </div>
+                        <span class="text-xs text-gray-500 font-mono">AI Agent Chat</span>
+                    </div>
+                    <div class="p-5 text-sm leading-relaxed space-y-4">
+                        <div class="flex gap-3 items-start">
+                            <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs font-bold rounded flex-shrink-0 mt-0.5">YOU</span>
+                            <p class="text-gray-300 mb-0">Create a landing page for our fitness app FitTrack with a dark theme, hero section, features grid, and pricing table</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="px-2 py-0.5 bg-violet-500/10 text-violet-400 text-xs font-bold rounded flex-shrink-0 mt-0.5">AGENT</span>
+                            <div class="text-gray-400 text-sm space-y-1.5">
+                                <p class="mb-0"><span class="terminal-green">&#10003;</span> Created <code class="text-violet-400 bg-violet-500/10 px-1 py-0.5 rounded text-xs">pages/fittrack/index.html</code></p>
+                                <p class="mb-0"><span class="terminal-green">&#10003;</span> Hero with CTA + app preview</p>
+                                <p class="mb-0"><span class="terminal-green">&#10003;</span> 6-card features grid</p>
+                                <p class="mb-0"><span class="terminal-green">&#10003;</span> 3-tier pricing table</p>
+                                <p class="mb-0"><span class="terminal-green">&#10003;</span> Built CSS &amp; started server</p>
+                                <p class="mb-0 text-emerald-400">Preview: localhost:3000/fittrack</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs font-bold rounded flex-shrink-0 mt-0.5">YOU</span>
+                            <p class="text-gray-300 mb-0">Add testimonials and change the accent color to emerald</p>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <span class="px-2 py-0.5 bg-violet-500/10 text-violet-400 text-xs font-bold rounded flex-shrink-0 mt-0.5">AGENT</span>
+                            <div class="text-gray-400 text-sm space-y-1.5">
+                                <p class="mb-0"><span class="terminal-green">&#10003;</span> Added testimonials section</p>
+                                <p class="mb-0"><span class="terminal-green">&#10003;</span> Updated accent to emerald</p>
+                                <p class="mb-0 text-emerald-400">Preview updated &#x2192;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="flex space-x-6">
-          <a href="#" class="text-slate-400 hover:text-white transition-colors text-sm">Privacy</a>
-          <a href="#" class="text-slate-400 hover:text-white transition-colors text-sm">Terms</a>
-          <a href="#" class="text-slate-400 hover:text-white transition-colors text-sm">Contact</a>
+    </section>
+
+    <!-- Why Section -->
+    <section class="py-16 border-y border-white/5 bg-[#09090b]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-violet-400 mb-1">&lt;1ms</div>
+                    <div class="text-sm text-gray-400">Response time with Bun</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-purple-400 mb-1">0</div>
+                    <div class="text-sm text-gray-400">JavaScript frameworks</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-fuchsia-400 mb-1">100</div>
+                    <div class="text-sm text-gray-400">Lighthouse score</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-black text-emerald-400 mb-1">Free</div>
+                    <div class="text-sm text-gray-400">Open source forever</div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="mt-8 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
-        &copy; 2026 LandingAI. All rights reserved. Powered by Claude.
-      </div>
-    </div>
-  </footer>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-24 bg-[#09090b]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-sm text-violet-400 font-medium uppercase tracking-wider mb-3">Why LandingPages?</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Simple by Design.<br><span class="text-gray-500">Powerful by Default.</span></h2>
+            </div>
+
+            <!-- AI Designer Hero Feature -->
+            <div class="p-8 md:p-10 rounded-2xl bg-gradient-to-br from-violet-500/[0.08] via-purple-500/[0.04] to-fuchsia-500/[0.08] border border-violet-500/15 mb-8">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-violet-500/10 border border-violet-500/20 rounded-full text-violet-400 text-xs font-semibold mb-4">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            KEY FEATURE
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">AI Agent as Your Web Designer</h3>
+                        <p class="text-gray-400 leading-relaxed mb-6">Open this project in Cursor, Windsurf, Zed, or any AI-powered editor and just describe what you want. The agent reads your project's design system rules and creates professional pages — complete with responsive layouts, accessibility, and Tailwind styling.</p>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Describe in plain English, get production-ready HTML
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Iterate with feedback — refine until perfect
+                            </li>
+                            <li class="flex items-center gap-2 text-gray-300">
+                                <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Agent handles CSS, accessibility, and responsive design
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="code-window rounded-xl border border-white/10 overflow-hidden">
+                        <div class="flex items-center gap-2 px-4 py-2 bg-white/5 border-b border-white/5">
+                            <span class="text-xs text-gray-500 font-mono">Example prompt</span>
+                        </div>
+                        <div class="p-5 text-sm">
+                            <p class="text-gray-300 font-mono leading-relaxed">"Create a landing page for our AI writing tool. Dark theme with blue accents. Include a hero with animated demo, features grid showing 6 capabilities, pricing table with free/pro/enterprise tiers, and customer testimonials."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-violet-500/20 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-violet-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Bun-Powered Speed</h3>
+                    <p class="text-gray-400 leading-relaxed">Bun serves your pages in under 1ms. No Node.js bloat, no webpack, no build step for HTML. Just raw speed.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-purple-500/20 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-purple-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Tailwind CSS Built-in</h3>
+                    <p class="text-gray-400 leading-relaxed">Tailwind CSS is pre-configured and ready to go. Write utility classes, build custom designs, and ship beautiful pages.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-blue-500/20 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-blue-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">File-Based Routing</h3>
+                    <p class="text-gray-400 leading-relaxed">Drop an <code class="text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded text-xs">index.html</code> into <code class="text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded text-xs">pages/my-page/</code> and it's live. No configuration needed.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/20 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-emerald-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Mobile-First</h3>
+                    <p class="text-gray-400 leading-relaxed">Every page is responsive by default. Tailwind's mobile-first breakpoints make it easy to build for all screen sizes.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-cyan-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Security Headers</h3>
+                    <p class="text-gray-400 leading-relaxed">Production-ready security headers included: CSP, X-Frame-Options, HSTS, and more — all configured out of the box.</p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-pink-500/20 transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-pink-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Subdomain Routing</h3>
+                    <p class="text-gray-400 leading-relaxed">Serve pages via path-based routes (<code class="text-pink-400 bg-pink-500/10 px-1.5 py-0.5 rounded text-xs">/product</code>) or subdomains (<code class="text-pink-400 bg-pink-500/10 px-1.5 py-0.5 rounded text-xs">product.yourdomain.com</code>).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section id="examples" class="py-24 bg-gradient-to-b from-[#09090b] to-[#0f0f1a]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-sm text-violet-400 font-medium uppercase tracking-wider mb-3">Examples</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">See What You Can Build</h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Each example is a real landing page built with this framework. Click to preview.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Product Example -->
+                <a href="/product" class="example-card block rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden group">
+                    <div class="aspect-[4/3] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-800 via-purple-700 to-indigo-700 flex items-center justify-center">
+                            <div class="w-32 h-32 rounded-full bg-gradient-to-br from-gray-600 via-gray-700 to-gray-800 border border-white/15 flex items-center justify-center shadow-lg shadow-purple-500/20">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 shadow-lg shadow-purple-500/30"></div>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-white/5 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-400 text-xs font-medium rounded">Product</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-1">AuraSound Pro</h3>
+                        <p class="text-sm text-gray-400">Premium product launch page with specs, reviews, and pre-order CTA.</p>
+                    </div>
+                </a>
+
+                <!-- Merch Example -->
+                <a href="/merch" class="example-card block rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden group">
+                    <div class="aspect-[4/3] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-neutral-800 via-red-800/50 to-orange-800/40 flex items-center justify-center">
+                            <span class="text-5xl font-black tracking-tighter text-white/30 uppercase">RVLT</span>
+                        </div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-white/5 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-0.5 bg-violet-500/10 text-violet-400 text-xs font-medium rounded">Merch / E-Commerce</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-1">RVLT Collective</h3>
+                        <p class="text-sm text-gray-400">Streetwear brand with product grid, collections, and newsletter signup.</p>
+                    </div>
+                </a>
+
+                <!-- SaaS Example -->
+                <a href="/saas" class="example-card block rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden group">
+                    <div class="aspect-[4/3] relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-800 via-[#0f1a30] to-emerald-800/30 flex items-center justify-center">
+                            <div class="grid grid-cols-3 gap-2 opacity-50">
+                                <div class="w-16 h-10 rounded bg-white/20"></div>
+                                <div class="w-16 h-10 rounded bg-blue-500/30"></div>
+                                <div class="w-16 h-10 rounded bg-white/20"></div>
+                                <div class="w-16 h-10 rounded bg-emerald-500/30"></div>
+                                <div class="w-16 h-10 rounded bg-white/20"></div>
+                                <div class="w-16 h-10 rounded bg-violet-500/30"></div>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-white/5 transition-colors"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="px-2 py-0.5 bg-blue-500/10 text-blue-400 text-xs font-medium rounded">SaaS</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-1">Flowboard</h3>
+                        <p class="text-sm text-gray-400">SaaS app page with pricing table, feature grid, testimonials, and FAQ.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works / Quick Start -->
+    <section id="quickstart" class="py-24 bg-[#0f0f1a]">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <p class="text-sm text-violet-400 font-medium uppercase tracking-wider mb-3">Quick Start</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Up and Running<br>in 30 Seconds</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="flex gap-6 items-start">
+                    <div class="w-10 h-10 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 font-bold flex-shrink-0 mt-1">1</div>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-bold mb-3">Clone & Install</h3>
+                        <div class="code-window rounded-xl border border-white/10 overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-2 bg-white/5 border-b border-white/5">
+                                <span class="text-xs text-gray-500 font-mono">Terminal</span>
+                            </div>
+                            <div class="p-4 text-sm font-mono">
+                                <div><span class="terminal-gray">$</span> <span class="terminal-green">git clone</span> <span class="text-gray-300">https://github.com/ninachaubal/LandingPages.git</span></div>
+                                <div><span class="terminal-gray">$</span> <span class="terminal-blue">cd</span> <span class="text-gray-300">LandingPages</span></div>
+                                <div><span class="terminal-gray">$</span> <span class="terminal-amber">bun</span> <span class="text-gray-300">install</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex gap-6 items-start">
+                    <div class="w-10 h-10 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 font-bold flex-shrink-0 mt-1">2</div>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-bold mb-3">Tell the Agent What to Build</h3>
+                        <div class="code-window rounded-xl border border-white/10 overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-2 bg-white/5 border-b border-white/5">
+                                <span class="text-xs text-gray-500 font-mono">Prompt the AI agent in your editor</span>
+                            </div>
+                            <div class="p-4 text-sm">
+                                <p class="text-gray-300 font-mono leading-relaxed">"Create a landing page for my SaaS product called TaskFlow. Include a hero section, features grid, pricing table, and testimonials. Use a dark theme with blue accents."</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3">The agent creates the page, builds CSS, and starts the dev server automatically.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex gap-6 items-start">
+                    <div class="w-10 h-10 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 font-bold flex-shrink-0 mt-1">3</div>
+                    <div class="flex-1">
+                        <h3 class="text-lg font-bold mb-3">Launch</h3>
+                        <div class="code-window rounded-xl border border-white/10 overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-2 bg-white/5 border-b border-white/5">
+                                <span class="text-xs text-gray-500 font-mono">Terminal</span>
+                            </div>
+                            <div class="p-4 text-sm font-mono">
+                                <div><span class="terminal-gray">$</span> <span class="terminal-amber">bun</span> <span class="text-gray-300">run dev</span></div>
+                                <div class="mt-2"><span class="terminal-green">Server running at http://localhost:3000</span></div>
+                                <div><span class="terminal-gray"># Visit http://localhost:3000/my-product</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Structure -->
+    <section class="py-24 bg-gradient-to-b from-[#0f0f1a] to-[#09090b]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <p class="text-sm text-violet-400 font-medium uppercase tracking-wider mb-3">Architecture</p>
+                    <h2 class="text-4xl font-bold mb-6">Clean Project Structure</h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        No config hell, no complicated build pipelines. Each page is a self-contained directory with its own <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-sm">index.html</code>. The server handles routing automatically.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="text-gray-300">File-based routing — directory name = URL path</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="text-gray-300">Shared Tailwind CSS compiled to a single stylesheet</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="text-gray-300">Optional subdomain routing for multi-tenant setups</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span class="text-gray-300">Docker-ready for instant deployment</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="code-window rounded-2xl border border-white/10 overflow-hidden">
+                    <div class="flex items-center gap-2 px-4 py-3 bg-white/5 border-b border-white/5">
+                        <span class="text-xs text-gray-500 font-mono">Project Structure</span>
+                    </div>
+                    <div class="p-6 text-sm font-mono leading-loose">
+                        <div class="terminal-amber">LandingPages/</div>
+                        <div class="pl-4"><span class="terminal-blue">pages/</span></div>
+                        <div class="pl-8"><span class="terminal-green">home/</span></div>
+                        <div class="pl-12"><span class="text-gray-400">index.html</span> <span class="terminal-gray">← yourdomain.com</span></div>
+                        <div class="pl-8"><span class="terminal-green">product/</span></div>
+                        <div class="pl-12"><span class="text-gray-400">index.html</span> <span class="terminal-gray">← /product</span></div>
+                        <div class="pl-8"><span class="terminal-green">merch/</span></div>
+                        <div class="pl-12"><span class="text-gray-400">index.html</span> <span class="terminal-gray">← /merch</span></div>
+                        <div class="pl-8"><span class="terminal-green">saas/</span></div>
+                        <div class="pl-12"><span class="text-gray-400">index.html</span> <span class="terminal-gray">← /saas</span></div>
+                        <div class="pl-4"><span class="terminal-blue">public/</span></div>
+                        <div class="pl-8"><span class="text-gray-400">styles.css</span> <span class="terminal-gray">← compiled</span></div>
+                        <div class="pl-4"><span class="terminal-blue">src/</span></div>
+                        <div class="pl-8"><span class="text-gray-400">input.css</span></div>
+                        <div class="pl-4"><span class="terminal-purple">server.ts</span></div>
+                        <div class="pl-4"><span class="text-gray-400">package.json</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-violet-900/30 via-[#09090b] to-fuchsia-900/15"></div>
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-6xl font-black mb-6">Describe It.<br>Ship It.</h2>
+            <p class="text-lg text-gray-400 mb-10 max-w-xl mx-auto">
+                Open source, free forever. Clone the repo, tell the AI agent what to build, and deploy. No design skills needed.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://github.com/ninachaubal/LandingPages" class="px-10 py-4 bg-violet-600 text-white rounded-xl font-semibold text-lg hover:bg-violet-500 transition-all hover:shadow-lg hover:shadow-violet-500/25 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    Star on GitHub
+                </a>
+                <a href="/docs" class="px-10 py-4 border border-white/10 rounded-xl font-semibold text-lg hover:bg-white/5 transition-all text-center">
+                    Read the Docs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 bg-[#09090b]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <span class="text-lg font-bold tracking-tight">LandingPages</span>
+                </div>
+                <div class="flex gap-8 text-sm text-gray-400">
+                    <a href="https://github.com/ninachaubal/LandingPages" class="hover:text-white transition-colors">GitHub</a>
+                    <a href="/docs" class="hover:text-white transition-colors">Documentation</a>
+                    <a href="#" class="hover:text-white transition-colors">Examples</a>
+                </div>
+                <p class="text-sm text-gray-400">Open source under MIT License</p>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>

@@ -2,6 +2,7 @@
   "name": "landing-pages",
   "version": "1.0.0",
   "description": "Static landing pages served with Bun",
+  "license": "MIT",
   "scripts": {
     "dev": "bun run --watch server.ts",
     "start": "bun run server.ts",
