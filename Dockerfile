@@ -35,9 +35,9 @@ ENV PORT=3000
 # Expose port
 EXPOSE 3000
 
-# Health check
+# Health check (using bun since curl is not available in slim image)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:3000/ || exit 1
+  CMD bun -e "fetch('http://localhost:3000/').then(r => r.ok ? process.exit(0) : process.exit(1)).catch(() => process.exit(1))"
 
 # Run the server
 CMD ["bun", "run", "server.ts"]
