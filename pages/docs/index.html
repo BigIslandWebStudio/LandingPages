@@ -1028,7 +1028,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white text-sm mb-1">Create Application in Coolify</h4>
-                                    <p class="text-sm text-gray-400 !mb-0">Add a new application using the Dockerfile build method, pointing to your GitHub repo.</p>
+                                    <p class="text-sm text-gray-400 !mb-0">Create a new resource → select <strong class="text-gray-300">Public Repository</strong> → paste your GitHub repo URL → choose <strong class="text-gray-300">Dockerfile</strong> as the build pack.</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start p-4 rounded-xl bg-white/[0.02] border border-white/5">
@@ -1036,8 +1036,8 @@
                                     <span class="text-violet-400 font-bold text-sm">3</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-white text-sm mb-1">Set Wildcard Domain</h4>
-                                    <p class="text-sm text-gray-400 !mb-0">In Coolify's domain settings, add <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">*.yourdomain.com</code> and enable Auto SSL.</p>
+                                    <h4 class="font-semibold text-white text-sm mb-1">Configure Wildcard Routing</h4>
+                                    <p class="text-sm text-gray-400 !mb-0">Leave FQDN empty, add custom Traefik labels with <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">HostRegexp</code> for wildcard subdomains, and set up DNS challenge for SSL.</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 items-start p-4 rounded-xl bg-white/[0.02] border border-white/5">
@@ -1045,8 +1045,8 @@
                                     <span class="text-violet-400 font-bold text-sm">4</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-white text-sm mb-1">Deploy</h4>
-                                    <p class="text-sm text-gray-400 !mb-0">Click deploy. Coolify builds the Docker image, starts the container, and configures the reverse proxy. New pages are instantly available at their subdomain.</p>
+                                    <h4 class="font-semibold text-white text-sm mb-1">Enable Auto-Deploy &amp; Deploy</h4>
+                                    <p class="text-sm text-gray-400 !mb-0">Set up a webhook or GitHub App for auto-deploy on push to <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">main</code>. Click deploy — Coolify builds the image and starts the container.</p>
                                 </div>
                             </div>
                         </div>
