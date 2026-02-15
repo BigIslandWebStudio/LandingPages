@@ -89,7 +89,10 @@ serve({
     // Try to get page from subdomain first
     const subdomainPage = extractPageFromHost(host);
 
-    // Serve public assets (CSS, images, etc.)
+    // Serve public assets (CSS, images, favicon, etc.)
+    if (pathname === "/favicon.svg" || pathname === "/og-image.png") {
+      return serveFile(join(PUBLIC_DIR, pathname.slice(1)), false);
+    }
     if (pathname.startsWith("/public/") || pathname === "/styles.css") {
       const assetPath =
         pathname === "/styles.css"
