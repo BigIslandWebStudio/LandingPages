@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation — LandingPages</title>
-    <meta name="description" content="Complete documentation for LandingPages — learn how to create, customize, and deploy beautiful landing pages with Bun and Tailwind CSS.">
+    <meta name="description" content="Complete documentation for LandingPages — learn how to create, customize, and deploy beautiful AI-designed landing pages.">
     <meta property="og:title" content="Documentation — LandingPages">
-    <meta property="og:description" content="Complete documentation for creating landing pages with Bun and Tailwind CSS.">
+    <meta property="og:description" content="Complete documentation for creating AI-designed landing pages.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.landing-pages.dev/docs">
+    <meta property="og:image" content="https://www.landing-pages.dev/og-image.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
@@ -241,8 +244,7 @@
 
                     <!-- Getting Started Category -->
                     <div class="mb-10">
-                        <p class="text-xs font-semibold uppercase tracking-widest text-violet-400/60 mb-1">Section</p>
-                        <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Getting Started</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Getting Started</h2>
                     </div>
 
                     <!-- Installation -->
@@ -397,7 +399,6 @@
 
                     <!-- AI Designer Category -->
                     <div class="mb-10 pt-4 border-t border-white/5">
-                        <p class="text-xs font-semibold uppercase tracking-widest text-violet-400/60 mb-1">Section</p>
                         <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">AI Designer</h2>
                     </div>
 
@@ -770,8 +771,7 @@
 
                     <!-- Core Concepts Category -->
                     <div class="mb-10 pt-4 border-t border-white/5">
-                        <p class="text-xs font-semibold uppercase tracking-widest text-violet-400/60 mb-1">Section</p>
-                        <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Core Concepts</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Core Concepts</h2>
                     </div>
 
                     <!-- Routing -->
@@ -917,8 +917,7 @@
 
                     <!-- Deployment Category -->
                     <div class="mb-10 pt-4 border-t border-white/5">
-                        <p class="text-xs font-semibold uppercase tracking-widest text-violet-400/60 mb-1">Section</p>
-                        <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">Deployment</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">Deployment</h2>
                     </div>
 
                     <!-- Commands -->
@@ -967,12 +966,84 @@
 
                         <p>LandingPages can be deployed in multiple ways. Here are the recommended options:</p>
 
-                        <!-- Vercel -->
+                        <!-- Railway (Recommended) -->
+                        <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-violet-400"></span>
+                            Deploy on Railway
+                            <span class="bg-violet-500/20 text-violet-300 text-xs px-2 py-0.5 rounded-full">Recommended</span>
+                        </h3>
+                        <p><a href="https://railway.app" class="text-violet-400 hover:text-violet-300 underline underline-offset-2">Railway</a> is the recommended deployment method because it supports <strong class="text-white">wildcard subdomain routing</strong> out of the box.</p>
+
+                        <p>Railway preserves the <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">Host</code> header, so the existing <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">server.ts</code> subdomain logic works automatically. Add <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">*.yourdomain.com</code> as a wildcard custom domain in the Railway dashboard, and each subdomain (e.g., <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">product.yourdomain.com</code>) routes to the corresponding page directory.</p>
+
+                        <div class="grid gap-4 mb-6">
+                            <div class="flex gap-4 items-start p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                                <div class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-violet-400 font-bold text-sm">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm mb-1">Push to GitHub</h4>
+                                    <p class="text-sm text-gray-400 !mb-0">Push your LandingPages repo to GitHub.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                                <div class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-violet-400 font-bold text-sm">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm mb-1">Create Project on Railway</h4>
+                                    <p class="text-sm text-gray-400 !mb-0">Go to <a href="https://railway.app" class="text-violet-400 hover:text-violet-300 underline underline-offset-2">railway.app</a>, create a new project → Deploy from GitHub repo. Railway auto-detects Bun.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                                <div class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-violet-400 font-bold text-sm">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm mb-1">Add Custom Domain</h4>
+                                    <p class="text-sm text-gray-400 !mb-0">In project settings → Networking → Custom Domain, add <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">*.yourdomain.com</code> (wildcard counts as 1 domain).</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                                <div class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <span class="text-violet-400 font-bold text-sm">4</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white text-sm mb-1">Configure DNS</h4>
+                                    <p class="text-sm text-gray-400 !mb-0">Add two CNAME records at your DNS provider: <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">*</code> → Railway's provided CNAME value, and <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">_acme-challenge</code> → <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">authorize.railwaydns.net</code> (for SSL).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="code-window rounded-xl border border-white/10 overflow-hidden mb-6">
+                            <div class="flex items-center gap-2 px-4 py-2 bg-white/5 border-b border-white/5">
+                                <span class="text-xs text-gray-500 font-mono">Terminal</span>
+                            </div>
+                            <div class="p-4 text-sm font-mono space-y-1">
+                                <div><span class="terminal-gray"># Install Railway CLI</span></div>
+                                <div><span class="terminal-gray">$</span> <span class="terminal-amber">npm</span> <span class="text-gray-300">i -g @railway/cli</span></div>
+                                <div class="mt-2"><span class="terminal-gray"># Login and deploy</span></div>
+                                <div><span class="terminal-gray">$</span> <span class="terminal-amber">railway</span> <span class="text-gray-300">login</span></div>
+                                <div><span class="terminal-gray">$</span> <span class="terminal-amber">railway</span> <span class="text-gray-300">up</span></div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-xl bg-violet-500/5 border border-violet-500/15 mb-8">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-5 h-5 text-violet-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <div>
+                                    <p class="text-violet-300 font-medium text-sm mb-1">Why Railway?</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed !mb-0">Railway runs your Bun server directly with full wildcard subdomain support. The built-in <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">server.ts</code> handles routing automatically — <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">product.yourdomain.com</code> serves <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">pages/product/</code>, <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">saas.yourdomain.com</code> serves <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">pages/saas/</code>, etc. Auto-deploys on every push, with automatic SSL for all subdomains.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vercel (Alternative) -->
                         <h3 class="text-lg font-semibold text-white flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
                             Deploy on Vercel
                         </h3>
-                        <p>The fastest way to get your landing pages live. Click the button below to deploy instantly:</p>
+                        <p>Vercel is a great option for <strong class="text-white">path-based routing</strong> (e.g., <code class="text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded text-xs">yourdomain.com/product</code>, <code class="text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded text-xs">yourdomain.com/saas</code>). Click the button below to deploy instantly:</p>
 
                         <div class="p-6 rounded-xl bg-white/[0.02] border border-white/5 mb-6 text-center">
                             <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fninachaubal%2FLandingPages%2F" class="inline-block">
@@ -995,68 +1066,12 @@
                             </div>
                         </div>
 
-                        <div class="p-5 rounded-xl bg-emerald-500/5 border border-emerald-500/15 mb-8">
+                        <div class="p-5 rounded-xl bg-emerald-500/5 border border-emerald-500/15 mb-6">
                             <div class="flex items-start gap-3">
                                 <svg class="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 <div>
                                     <p class="text-emerald-300 font-medium text-sm mb-1">Why Vercel?</p>
-                                    <p class="text-gray-400 text-sm leading-relaxed !mb-0">Vercel provides automatic SSL, global CDN, instant rollbacks, and preview deployments for every push. It's the easiest way to deploy if you don't need subdomain routing.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Coolify -->
-                        <h3 class="text-lg font-semibold text-white flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-violet-400"></span>
-                            Self-Hosted with Coolify
-                        </h3>
-                        <p>For full control, deploy on your own server using <a href="https://coolify.io" class="text-violet-400 hover:text-violet-300 underline underline-offset-2">Coolify</a> — an open-source, self-hostable platform. This is the recommended option if you need <strong class="text-white">wildcard subdomain routing</strong> (e.g., <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">product.yourdomain.com</code>).</p>
-
-                        <div class="grid gap-4 mb-6">
-                            <div class="flex gap-4 items-start p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                                <div class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span class="text-violet-400 font-bold text-sm">1</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-white text-sm mb-1">Configure Wildcard DNS</h4>
-                                    <p class="text-sm text-gray-400 !mb-0">Add a wildcard A record (<code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">*.yourdomain.com</code>) pointing to your Coolify server IP.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                                <div class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span class="text-violet-400 font-bold text-sm">2</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-white text-sm mb-1">Create Application in Coolify</h4>
-                                    <p class="text-sm text-gray-400 !mb-0">Create a new resource → select <strong class="text-gray-300">Public Repository</strong> → paste your GitHub repo URL → choose <strong class="text-gray-300">Dockerfile</strong> as the build pack.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                                <div class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span class="text-violet-400 font-bold text-sm">3</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-white text-sm mb-1">Configure Wildcard Routing</h4>
-                                    <p class="text-sm text-gray-400 !mb-0">Leave FQDN empty, add custom Traefik labels with <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">HostRegexp</code> for wildcard subdomains, and set up DNS challenge for SSL.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                                <div class="w-8 h-8 rounded-lg bg-violet-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <span class="text-violet-400 font-bold text-sm">4</span>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-white text-sm mb-1">Enable Auto-Deploy &amp; Deploy</h4>
-                                    <p class="text-sm text-gray-400 !mb-0">Set up a webhook or GitHub App for auto-deploy on push to <code class="text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded text-xs">main</code>. Click deploy — Coolify builds the image and starts the container.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-5 rounded-xl bg-violet-500/5 border border-violet-500/15 mb-6">
-                            <div class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-violet-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                <div>
-                                    <p class="text-violet-300 font-medium text-sm mb-1">Full Coolify Guide</p>
-                                    <p class="text-gray-400 text-sm leading-relaxed !mb-0">For the complete step-by-step guide including environment variables, SSL configuration, troubleshooting, and architecture diagrams, see <a href="https://github.com/ninachaubal/LandingPages/blob/main/DEPLOYMENT.md" class="text-violet-400 hover:text-violet-300 underline underline-offset-2">DEPLOYMENT.md</a> in the repository.</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed !mb-0">Vercel provides automatic SSL, global CDN, instant rollbacks, and preview deployments for every push. Ideal for path-based routing without subdomain requirements.</p>
                                 </div>
                             </div>
                         </div>
