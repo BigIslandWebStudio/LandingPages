@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#0d0d14"/>
-  <rect x="516" y="165" width="168" height="168" rx="32" fill="#8b5cf6"/>
-  <polygon points="614,195 580,280 604,280 586,333 620,248 596,248" fill="white"/>
-  <text x="600" y="420" text-anchor="middle" font-family="sans-serif" font-size="48" font-weight="700" fill="white">LandingPages</text>
-  <text x="600" y="470" text-anchor="middle" font-family="sans-serif" font-size="24" font-weight="400" fill="#a1a1aa">AI-Designed Landing Pages in Seconds</text>
-</svg>
