@@ -105,14 +105,24 @@ serve({
     let pageName: string;
 
     if (subdomainPage) {
-      // Subdomain routing: home.domain.com serves pages/home/index.html
       pageName = subdomainPage;
     } else if (pathname === "/" || pathname === "") {
-      // Root path without subdomain - serve a default page or list
-      pageName = "home";
+      pageName = "www";
     } else {
       // Path-based routing: /page1 serves pages/page1/index.html
       pageName = pathname.replace(/^\//, "").replace(/\/$/, "").split("/")[0];
+    }
+
+    // Check if the page exists; if not, redirect to www
+    const pageDir = file(join(PAGES_DIR, pageName, "index.html"));
+    if (!(await pageDir.exists())) {
+      const wwwHost = host.includes(".")
+        ? "www." + host.split(".").slice(-2).join(".")
+        : host;
+      return new Response(null, {
+        status: 301,
+        headers: { Location: `${url.protocol}//${wwwHost}${pathname}` },
+      });
     }
 
     // Handle nested paths within a page (e.g., /page1/about)
